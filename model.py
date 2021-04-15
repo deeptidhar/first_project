@@ -40,6 +40,9 @@ class Favorite(db.Model):
     user_id= db.Column(db.Integer, db.ForeignKey('users.user_id'))
     stock_symbol = db.Column(db.String, db.ForeignKey('stocks.stock_symbol'))
 
+    def __repr__(self):
+        return f'<user_id={self.user_id} stock_symbol ={self.stock_symbol}>'
+
     stock = db.relationship('Stock', backref='favorites')
     user = db.relationship('User', backref='favorites')
 

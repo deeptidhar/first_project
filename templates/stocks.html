@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}stocks{% endblock %}
+
+{% block body %}
+  <h1>All Stocks</h1>
+  <a href="/">Go back to Home</a>
+  <ul>
+    {% for stock in stocks %}
+      <li>
+        <a href="/stocks/{{ stock.stock_symbol }}">
+            {{ stock.companyname }}
+            {{ stock.stock_symbol }}
+
+        </a>
+
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+
+
+
+

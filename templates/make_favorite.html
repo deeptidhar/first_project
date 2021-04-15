@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}stocks{% endblock %}
+
+{% block body %}
+  <h1>All Stocks</h1>
+  <h3>Choose a few stocks to favorite:</h3>
+
+  <ul>
+    <a href="/">Go back to Home</a>
+    <form action="/make_favorite" method="POST">
+    {% for stock in stocks %}
+      <li>
+        <a href="/stocks/{{ stock.stock_symbol }}">
+            {{ stock.companyname }}
+            {{ stock.stock_symbol }}
+
+        </a>
+
+        <input type="checkbox" name="stock_symbol" value="{{ stock.stock_symbol }}">
+    </li>
+    {% endfor %}
+      <input type="submit" value="Submit My Favorites!">
+  </form>
+  </ul>
+{% endblock %}
+
+
+
+
+
+
+

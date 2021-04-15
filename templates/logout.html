@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}stocks{% endblock %}
+
+{% block body %}
+  <h1>All Stocks</h1>
+
+  <ul>
+    {% for logout in  stocks %}
+      <li>
+        <a href="/stocks/{{ stock.logout}}">
+            {{ stock.logout}}
+            

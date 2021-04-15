@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %} Stocks Home{% endblock %}
+
+{% block body %}
+  <h1>Welcome to the Stock-Market!</h1>
+
+  <h2>Navigation</h2>
+  <ul>
+
+   
+   {% if session.get('user_id') %}
+      <li><a href ="/users">users</a></li> 
+      <li><a href ="/make_favorite">Choose a Favorite Stock</a></li>
+      <li><a href ="/favorites">My Favorites</a></li>
+      <li><a href ="/logout">Logout</a></li>
+    {% else %}
+      <li><a href="/stocks">See Stocks</a></li> 
+      <li><a href ="/signupform">signup</a></li> 
+      <li><a href ="/searchpage">searchpage</a></li>
+       <h2>Login To Account</h2>
+    <form action="/login"method ="POST">
+      <p>
+        Email <input type="text" name="login-email">
+      </p>
+  
+      <p>
+        Password <input type="password" name="login-password">
+      </p>
+      
+      <p>
+        <input type="submit">
+      </p>
+    </form>
+
+   <h2>Create an Account</h2>
+   <form action="/signup" method="POST">
+    <p>
+      Name<input type="text" name="name">
+    </p>
+
+
+
+     <p>
+       Email <input type="text" name="register-email">
+     </p>
+ 
+     <p>
+       Password <input type="password" name="register-password">
+     </p>
+ 
+     <p>
+       <input type="submit">
+     </p>
+   </form>
+    
+  </ul>
+  {% endif %}
+{% endblock %}

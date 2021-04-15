@@ -1,6 +1,6 @@
 from model import db, User, Favorite, Stock, connect_to_db
 
-def create_user(name, email, password):
+def create_user( email, password, name):
     """Create and return a new user."""
 
     user = User(name=name, email=email, password=password)
@@ -9,12 +9,17 @@ def create_user(name, email, password):
     db.session.commit()
 
     return user
+    
 
 def get_users():
     return User.query.all()
 
 def get_user_by_id(user_id):
     return User.query.get(user_id)
+
+
+def get_user_by_email(email):
+    return User.query.filter(User.email == email).first()
 
 def make_stock(stock_symbol,companyname):
     stock= Stock(stock_symbol=stock_symbol,companyname=companyname)
@@ -23,10 +28,10 @@ def make_stock(stock_symbol,companyname):
     db.session.commit()
     return stock
 
-def get_stock():
+def get_stocks():
     return Stock.query.all()
 
-def favorite(user_id,stock_symbol):
+def make_favorite(user_id,stock_symbol):
     new_favorite =Favorite(user_id=user_id,stock_symbol=stock_symbol)
     # i have to put first my stocktable and create users from usertable then do fav #add some database n ur temrinal createtestuser
     db.session.add(new_favorite)
@@ -36,8 +41,11 @@ def favorite(user_id,stock_symbol):
 
     
 
-def get_favorite():
-    return Favorite.query.all()
+def get_favorites(user_id):
+    return Favorite.query.filter_by(user_id=user_id).all()
+    #return Favorite.query.all()
+
+
 
 
 
