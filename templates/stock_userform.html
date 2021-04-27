@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}stocks_userform{% endblock %}
+
+{% block body %}
+  <h1>All Stocks</h1>
+  
+
+  <ul>
+    <a href="/">Go back to Home</a>
+    <form action="/stocks_userform" method="POST">
+    
+    
+
+      <input type="checkbox" name="stock_symbol" value={{ stock.stock_symbol }}>
+    
+      <input type="submit" value="Submit">
+  </form>
+  </ul>
+{% endblock %}

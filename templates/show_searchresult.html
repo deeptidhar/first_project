@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}show_searchstocks{% endblock %}
+
+{% block body %}
+  <h1>All Prices for {{ stock.stock_symbol}}</h1>
+  <h1>All Prices for {{ stock.companyname }}</h1>
+       {% for date, price in prices %} 
+        <h4>{{ date }}</h4>
+        <ul>open: ${{ price.get('1. open') }}</ul>
+        <ul>close: ${{ price.get('4. close') }}</ul>
+    {% endfor %}
+    <script src="/static/js/ajax.js"></script>
+    <!-- <h1>I'm Here</h1>    -->
+
+{% endblock %}

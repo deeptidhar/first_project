@@ -9,14 +9,15 @@
 
    
    {% if session.get('user_id') %}
-      <li><a href ="/users">users</a></li> 
+      <!-- <li><a href ="/users">users</a></li>  -->
       <li><a href ="/make_favorite">Choose a Favorite Stock</a></li>
       <li><a href ="/favorites">My Favorites</a></li>
       <li><a href ="/logout">Logout</a></li>
     {% else %}
       <li><a href="/stocks">See Stocks</a></li> 
       <li><a href ="/signupform">signup</a></li> 
-      <li><a href ="/searchpage">searchpage</a></li>
+      <li><a href ="/show_searchpage">show_searchpage</a></li>
+      <!-- <li><a href ="/searchpage">searchpage</a></li> -->
        <h2>Login To Account</h2>
     <form action="/login"method ="POST">
       <p>

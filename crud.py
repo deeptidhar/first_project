@@ -28,6 +28,12 @@ def make_stock(stock_symbol,companyname):
     db.session.commit()
     return stock
 
+def get_stock_by_symbol(stock_symbol):#filter is used n general
+    result = Stock.query.filter(Stock.stock_symbol.like(f'%{stock_symbol}%')).first()
+    return result 
+    # f string as variable
+    #stock table using stk symbol as colmn
+
 def get_stocks():
     return Stock.query.all()
 

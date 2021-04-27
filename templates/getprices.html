@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}stocks{% endblock %}
+
+{% block body %}
+  <h1>All Stocks</h1>
+ 
+
+  
+    {% for login in stocks %}
+      
+        <a href="/stocks/{{stock.getprice}}">
+            {{ stock.log_in}}
+            
+              <a href="/">Go back to Home</a>
+              <form action="/stocks_userform"></form>
+              
+                  
+          
+                  <input type="checkbox" name="stock_symbol" value={{ stock.getprices }}>
+              
+              {% endfor %}
+                <input type="submit" value="Submit">
+            </form>
+            
+          {% endblock %}   

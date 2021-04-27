@@ -8,6 +8,7 @@
 {% for favorite in favorites %}
     <ul>
         <li>{{ favorite.stock.companyname }}</li>
+        <li>{{favorite.stock.stock_symbol}}</li>
     </ul>
 {% endfor %}
 {% endblock %}
