@@ -1,6 +1,6 @@
 import requests # req s lib
 from flask import (Flask, render_template, request, flash, session,
-                   redirect)
+                   redirect, jsonify)
 from model import connect_to_db
 import crud
 from jinja2 import StrictUndefined
@@ -26,7 +26,7 @@ def homepage():
 def get_stocks():
     
     stocks = request.args.get("stock")
-    stocks=crud.get_stocks()
+    stocks = crud.get_stocks()
 
     return render_template('stocks.html',stocks=stocks) 
 
@@ -35,10 +35,13 @@ def get_stocks():
 def favorites():
     """Shows favorite stocks for a logged in user"""
 
-    favorites = crud.get_favorites(session['user_id'])# key in session as attributes as user_id which is string 
-    
+    if 'user_id' in session:
+        favorites = crud.get_favorites(session['user_id'])# key in session as attributes as user_id which is string 
+        return render_template('favorites.html', favorites=favorites)
 
-    return render_template('favorites.html', favorites=favorites)
+    else:
+        flash('u r not logged in ')
+        return redirect('/signupform')
     
 @app.route('/deletefavorites',methods =['GET','POST'])
 def delete_favorites():
@@ -188,7 +191,22 @@ def handle_search():
 
     return render_template('/show_searchresult.html', stock=stock, prices=prices)#p=list of seven obj containing open and closing for seven pr
     
-    
+
+@app.route('/stocks/<symbol>')
+def name_symbol_details(symbol):
+    # search_term = request.args.get('search_term')#it matches the search page in html file #in python it has variable is using 
+    stock = crud.get_stock_by_symbol(symbol.upper())
+    print(stock, '**********STOCK**********')
+    # url="https://www.alphavantage.co/query"#endposint
+    # payload ={'function': 'OVERVIEW', 'symbol': stock.stock_symbol,'apikey': "QZI49NG4NQ5LIK1R"}
+    # payload ={'function':'OVERVIEW', 'symbol':stock.stock_symbol,'apikey': os.environ.get("TICKETMASTER_KEY")}
+    response = requests.get(f'https://www.alphavantage.co/query?function=OVERVIEW&symbol={symbol}&apikey={os.environ.get("TICKETMASTER_KEY")}')
+    data = response.json()
+    print(data, '***********DATA************')
+    return render_template('/stockinfo.html', data=data, stock=stock)
+    # u want to me create new temp that is going to display all stokc inf or data from this api something like stk .html,like getprice
+
+
 
 def select_stocks():
     return render_template('/getprice.html')

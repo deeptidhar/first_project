@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}stocks{% endblock %}
+
+{% block body %}
+  <h1>{{ stock.companyname }}</h1>
+    {% if data %}   
+    {{data['Name']}}
+    
+
+    {{ data['Description']}} 
+    {% endif %}
+
+           
+{% endblock %}   
+            

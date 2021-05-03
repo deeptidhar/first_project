@@ -10,14 +10,14 @@
       {% endblock %}
     </title>
     <script
-    src="https://code.jquery.com/jquery-3.6.0.js"
+    
     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js"></script>
-    </head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
-    
+  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/stylesheet.css">
 
     {% block head %}{% endblock %}
   </head>
@@ -31,16 +31,23 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="/stocks">See Stocks</a>
-            <a class="nav-link" href="/signupform">Signup</a>
-            <a class="nav-link" href='show_searchpage'>Show_searchpage</a>
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link" href="/stocks">Stocks</a>
+            <a class="nav-link" href="/signupform">Register</a>
+            <a class="nav-link" href='show_searchpage'>Search</a>
+            <a class="nav-link" href='/favorites'>My Favorites</a>
+            <a class="nav-link" href='/make_favorite'>Make Favorite</a> 
+            
+                       
+            
             
           </div>
         </div>
      
     </nav>
-  
+    
+          
+
     
         </ul>
        
@@ -65,9 +72,11 @@
       {{ msg }}
     </p>
   {% endfor %}
+    <div class="container">
     {% block body %}{% endblock %}
-
+    </div>
     {% block after_body %}{% endblock %}
+
     <script src="/static/js/ajax.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

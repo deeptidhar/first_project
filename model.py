@@ -19,6 +19,8 @@ class User(db.Model):
     def __repr__(self):
         return f'<User user_id={self.user_id} email={self.email}>'
 
+        
+
 class Stock(db.Model):
     """A stocktable."""
 
@@ -30,6 +32,8 @@ class Stock(db.Model):
     
     def __repr__(self):
         return f'<symbol={self.stock_symbol} companyname={self.companyname}>'
+
+
 
 class Favorite(db.Model):
     """A userfavorite table."""

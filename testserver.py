@@ -14,6 +14,8 @@ class FlaskTests(unittest.TestCase):
         app.config['TESTING'] = True
         connect_to_db(app, "postgresql:///testdb")
 
+    
+
     def test_some_flask_route(self):
         """Some non-database test..."""
         # checking for response =200
@@ -31,6 +33,8 @@ class FlaskTests(unittest.TestCase):
                                 data={"login-email": "russell00@williams.biz", "login-password": "F!s1n1VuLs"},
                                 follow_redirects=True)
         self.assertIn(b"All Stocks", result.data) 
+
+        
 
     def test_login(self):
         """Test login page."""

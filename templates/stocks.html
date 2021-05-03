@@ -7,10 +7,11 @@
   <ul>
     {% for stock in stocks %}
       <li>
+
+               
         <a href="/stocks/{{ stock.stock_symbol }}">
             {{ stock.companyname }}
             {{ stock.stock_symbol }}
-
         </a>
 
     </li>
