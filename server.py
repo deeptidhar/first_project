@@ -198,7 +198,7 @@ def name_symbol_details(symbol):
     stock = crud.get_stock_by_symbol(symbol.upper())
     print(stock, '**********STOCK**********')
     # url="https://www.alphavantage.co/query"#endposint
-    # payload ={'function': 'OVERVIEW', 'symbol': stock.stock_symbol,'apikey': "QZI49NG4NQ5LIK1R"}
+    # payload ={'function': 'OVERVIEW', 'symbol': stock.stock_symbol,'apikey': }
     # payload ={'function':'OVERVIEW', 'symbol':stock.stock_symbol,'apikey': os.environ.get("TICKETMASTER_KEY")}
     response = requests.get(f'https://www.alphavantage.co/query?function=OVERVIEW&symbol={symbol}&apikey={os.environ.get("TICKETMASTER_KEY")}')
     data = response.json()
