@@ -37,7 +37,7 @@ Features :
     
 ## Screenshots
 
-https://github.com/deeptidhar/first_project/blob/master/stocks-pic.png
+[!homepage](https://github.com/deeptidhar/first_project/blob/master/stocks-pic.png)
 
   
 ## Authors
